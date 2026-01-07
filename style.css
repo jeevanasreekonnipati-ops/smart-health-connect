@@ -1,0 +1,303 @@
+:root {
+    --bg: #0b1221;
+    --panel: #121a2e;
+    --alt: #0f1630;
+    --text: #e6eefc;
+    --muted: #97a3ba;
+    --primary: #4f7df3;
+    --primary-700: #3a62cf;
+    --accent: #2ad1b8;
+    --red: #e36d6d;
+    --green: #46c37b;
+    --shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    --radius: 14px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+    color: var(--text);
+    background: radial-gradient(1200px 800px at 10% 0%, #0b1221 0%, #0b0f1b 60%, #070a14 100%);
+}
+
+/* Header */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 24px;
+    background: rgba(10, 15, 25, 0.85);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.logo {
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    color: var(--text);
+    text-decoration: none;
+}
+
+.site-nav ul {
+    display: flex;
+    gap: 12px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.site-nav a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 10px;
+}
+
+.site-nav a:hover {
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+/* Hero */
+.hero {
+    display: grid;
+    place-items: center;
+    min-height: 60vh;
+    background:
+        radial-gradient(600px 300px at 80% 40%, rgba(79, 125, 243, 0.14), transparent 60%),
+        radial-gradient(500px 250px at 20% 60%, rgba(42, 209, 184, 0.16), transparent 60%);
+}
+
+.hero-content {
+    text-align: center;
+    max-width: 800px;
+    padding: 64px 24px;
+}
+
+.hero h1 {
+    font-size: 2.4rem;
+    margin: 0 0 10px;
+}
+
+.hero p {
+    color: var(--muted);
+    margin: 0 0 18px;
+}
+
+.hero-actions {
+    display: inline-flex;
+    gap: 12px;
+}
+
+/* Sections */
+.section {
+    padding: 40px 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section.alt {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 40%);
+}
+
+.section-head {
+    display: grid;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.section-head h2 {
+    margin: 0;
+    font-size: 1.6rem;
+}
+
+.section-head p {
+    margin: 0;
+    color: var(--muted);
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+input[type="search"],
+input[type="text"],
+input[type="date"],
+input[type="time"],
+input[type="email"],
+textarea {
+    width: 100%;
+    background: var(--panel);
+    color: var(--text);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 10px 12px;
+    border-radius: 12px;
+}
+
+/* Grid and cards */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+}
+
+.card {
+    background: var(--panel);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 16px;
+}
+
+.card h3 {
+    margin-top: 0;
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--text);
+    cursor: pointer;
+}
+
+.btn.primary {
+    background: linear-gradient(180deg, var(--primary), var(--primary-700));
+    border: none;
+}
+
+.btn.secondary {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+/* Dialog */
+dialog {
+    border: none;
+    border-radius: var(--radius);
+    max-width: 420px;
+    width: 100%;
+    background: var(--panel);
+    color: var(--text);
+    padding: 16px;
+    box-shadow: var(--shadow);
+}
+
+dialog::backdrop {
+    background: rgba(2, 6, 15, 0.7);
+}
+
+dialog form {
+    display: grid;
+    gap: 10px;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+/* Pharmacy layout */
+.pharmacy-layout {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 16px;
+}
+
+.cart {
+    background: var(--panel);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius);
+    padding: 16px;
+    box-shadow: var(--shadow);
+}
+
+.cart-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 8px;
+}
+
+.cart-items li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.total {
+    font-weight: 700;
+}
+
+/* Dashboard */
+.dashboard-grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.compact {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 8px;
+}
+
+/* Contact */
+.contact-form {
+    display: grid;
+    gap: 12px;
+    max-width: 560px;
+}
+
+.status {
+    color: var(--accent);
+    min-height: 1em;
+}
+
+/* Footer */
+.site-footer {
+    padding: 24px;
+    text-align: center;
+    color: var(--muted);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Pills and badges */
+.pill {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--muted);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+/* Responsive tweaks */
+@media (max-width: 860px) {
+    .pharmacy-layout {
+        grid-template-columns: 1fr;
+    }
+}

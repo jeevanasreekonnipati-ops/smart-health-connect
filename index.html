@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Smart Health Connect</title>
+    <link rel="stylesheet" href="style.css" />
+    <meta name="description" content="Smart Health Connect: Doctors, Pharmacy, and Patient Dashboard in one place." />
+</head>
+
+<body>
+    <header class="site-header">
+        <a class="logo" href="#home" aria-label="Smart Health Connect home">Smart Health Connect</a>
+        <nav class="site-nav" aria-label="Primary">
+            <ul>
+                <li><a href="#doctors">Doctors</a></li>
+                <li><a href="#pharmacy">Pharmacy</a></li>
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="home">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Care that connects, data that empowers</h1>
+                <p>Find doctors, order medicines, and track your health—all in one lightweight demo.</p>
+                <div class="hero-actions">
+                    <a class="btn primary" href="#doctors">Find a doctor</a>
+                    <a class="btn secondary" href="#pharmacy">Explore pharmacy</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="doctors" class="section">
+            <div class="section-head">
+                <h2>Doctors</h2>
+                <p>Browse specialists and book an appointment.</p>
+                <div class="controls">
+                    <input id="doctor-search" type="search" placeholder="Search by name or specialty"
+                        aria-label="Search doctors" />
+                </div>
+            </div>
+            <div id="doctor-list" class="grid"></div>
+
+            <!-- Appointment modal -->
+            <dialog id="appointment-modal" aria-labelledby="appointment-title">
+                <form id="appointment-form" method="dialog">
+                    <h3 id="appointment-title">Book appointment</h3>
+                    <p id="appointment-doctor"></p>
+                    <label>
+                        <span>Date</span>
+                        <input type="date" id="appt-date" required />
+                    </label>
+                    <label>
+                        <span>Time</span>
+                        <input type="time" id="appt-time" required />
+                    </label>
+                    <label>
+                        <span>Reason</span>
+                        <input type="text" id="appt-reason" placeholder="e.g., follow-up" required />
+                    </label>
+                    <div class="modal-actions">
+                        <button class="btn secondary" value="cancel">Cancel</button>
+                        <button class="btn primary" id="appt-confirm" value="default">Confirm</button>
+                    </div>
+                </form>
+            </dialog>
+        </section>
+
+        <section id="pharmacy" class="section alt">
+            <div class="section-head">
+                <h2>Pharmacy</h2>
+                <p>Search medicines and add to cart.</p>
+                <div class="controls">
+                    <input id="pharmacy-search" type="search" placeholder="Search by name or condition"
+                        aria-label="Search medicines" />
+                </div>
+            </div>
+            <div class="pharmacy-layout">
+                <div class="pharmacy-list">
+                    <div id="medicine-list" class="grid"></div>
+                </div>
+                <aside class="cart">
+                    <h3>Cart</h3>
+                    <ul id="cart-items" class="cart-items"></ul>
+                    <div class="cart-footer">
+                        <span id="cart-total" class="total">Total: ₹0</span>
+                        <button class="btn primary" id="checkout-btn" aria-label="Checkout">Checkout</button>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <section id="dashboard" class="section">
+            <div class="section-head">
+                <h2>Patient dashboard</h2>
+                <p>Quick overview of vitals, appointments, and prescriptions.</p>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="card">
+                    <h3>Vitals</h3>
+                    <canvas id="vitals-chart" width="480" height="240" aria-label="Vitals chart" role="img"></canvas>
+                    <ul id="vitals-list" class="compact"></ul>
+                </div>
+
+                <div class="card">
+                    <h3>Upcoming appointments</h3>
+                    <ul id="appointments-list" class="compact"></ul>
+                </div>
+
+                <div class="card">
+                    <h3>Prescriptions</h3>
+                    <ul id="prescriptions-list" class="compact"></ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section alt">
+            <div class="section-head">
+                <h2>Contact</h2>
+                <p>Demo-only. No real data collected.</p>
+            </div>
+            <form id="contact-form" class="contact-form" novalidate>
+                <label>
+                    <span>Name</span>
+                    <input type="text" id="contact-name" required />
+                </label>
+                <label>
+                    <span>Email</span>
+                    <input type="email" id="contact-email" required />
+                </label>
+                <label>
+                    <span>Message</span>
+                    <textarea id="contact-message" rows="4" required></textarea>
+                </label>
+                <button class="btn primary" type="submit">Send</button>
+                <p id="contact-status" class="status" role="status" aria-live="polite"></p>
+            </form>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <small>© 2026 Smart Health Connect — Demo build</small>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+
+</html>
